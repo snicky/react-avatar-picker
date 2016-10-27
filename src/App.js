@@ -22,11 +22,7 @@ const saveAvatar = (avatar) => {
 
 export default class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <br/>
-        <AvatarPicker avatars={avatars} avatarsPerRow={4} saveAvatar={saveAvatar} />
-      </div>
-    );
+    return <AvatarPicker avatars={avatars}
+              avatarsPerRow={4} saveAvatar={saveAvatar} />;
   }
 }
