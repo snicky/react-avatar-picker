@@ -24,7 +24,7 @@ export default class AvatarPicker extends Component {
     return bounce;
   })();
 
-  open() {
+  open = () => {
     // Short delay to start bouncing before the element is displayed.
     const displayDelay = 50;
     this.bounceEffect.applyTo(this.popover);
@@ -46,12 +46,12 @@ export default class AvatarPicker extends Component {
 
   avatarsGrid = new HappyGrid(this.props.avatars, this.props.avatarsPerRow);
 
-  detectPopoverClicks(e) {
+  detectPopoverClicks = (e) => {
     if (this.state.opened && !this.popover.contains(e.target)) {
       this.close();
     }
   }
-  detectKeyDown(e) {
+  detectKeyDown = (e) => {
     if (this.state.opened) {
       this.avatarsGrid.setCurrentElement(this.state.hoveredAvatar);
       let newHoveredAvatar;
@@ -80,18 +80,18 @@ export default class AvatarPicker extends Component {
     }
   }
   componentWillMount() {
-    document.addEventListener('click', this.detectPopoverClicks.bind(this), false);
-    document.addEventListener('keydown', this.detectKeyDown.bind(this), false);
+    document.addEventListener('click', this.detectPopoverClicks, false);
+    document.addEventListener('keydown', this.detectKeyDown, false);
   }
   componentWillUnmount() {
-    document.removeEventListener('click', this.detectPopoverClicks.bind(this), false);
-    document.removeEventListener('keydown', this.detectKeyDown.bind(this), false);
+    document.removeEventListener('click', this.detectPopoverClicks, false);
+    document.removeEventListener('keydown', this.detectKeyDown, false);
   }
 
   // ------------------------------------------------------------------------
   // Callbacks to pass down to the AvatarListImage
 
-  saveAvatarChoice(avatar) {
+  saveAvatarChoice = (avatar) => {
     return new Promise(((resolve, _) => {
       this.setState({ spinningAvatar: avatar });
       this.props.saveAvatar(avatar).then(() => {
@@ -102,7 +102,7 @@ export default class AvatarPicker extends Component {
     }));
   }
 
-  hoverAvatar(avatar) {
+  hoverAvatar = (avatar) => {
     if (this.state.opened) {
       this.setState({ hoveredAvatar: avatar });
     }
@@ -111,7 +111,7 @@ export default class AvatarPicker extends Component {
   // ------------------------------------------------------------------------
   // Presentation
 
-  setPopoverClass() {
+  setPopoverClass = () => {
     let className = 'popover';
     if (this.state.opened) className += ' opened';
     return className;
@@ -122,8 +122,8 @@ export default class AvatarPicker extends Component {
         <AvatarListImage
           avatar={avatar}
           key={`avatar-${avatar.id}`}
-          saveAvatarChoice={this.saveAvatarChoice.bind(this)}
-          hoverAvatar={this.hoverAvatar.bind(this)}
+          saveAvatarChoice={this.saveAvatarChoice}
+          hoverAvatar={this.hoverAvatar}
           hovered={this.state.hoveredAvatar === avatar}
           spinning={this.state.spinningAvatar === avatar}
         />
@@ -132,8 +132,8 @@ export default class AvatarPicker extends Component {
     return (
       <div className="avatar-picker">
         <img className="current" src={this.state.currentAvatar.src}
-          onClick={this.open.bind(this)} alt={this.state.currentAvatar.label} />
-        <div className={this.setPopoverClass.apply(this)}
+          onClick={this.open} alt={this.state.currentAvatar.label} />
+        <div className={this.setPopoverClass()}
           ref={(domNode) => this.popover = domNode}>
           <div className="title">Choose your avatar:</div>
           <ul>{avatarImages}</ul>

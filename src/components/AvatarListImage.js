@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default class AvatarListImage extends Component {
-  chooseAvatar() {
+  chooseAvatar = () => {
     this.props.saveAvatarChoice(this.props.avatar);
   }
   setWrapperClass() {
@@ -10,19 +10,19 @@ export default class AvatarListImage extends Component {
     if (this.props.spinning) className += ' spinning';
     return className;
   }
-  onMouseOver() {
+  onMouseOver = () => {
     this.props.hoverAvatar(this.props.avatar);
   }
-  onMouseOut() {
+  onMouseOut = () => {
     this.props.hoverAvatar(null);
   }
   render() {
     return (
       <li className={this.setWrapperClass()}>
         <img src={this.props.avatar.src} alt={this.props.avatar.label} />
-        <div className='image-overlay' onClick={this.chooseAvatar.bind(this)}
-          onMouseOver={this.onMouseOver.bind(this)}
-          onMouseOut={this.onMouseOut.bind(this)}></div>
+        <div className='image-overlay' onClick={this.chooseAvatar}
+          onMouseOver={this.onMouseOver}
+          onMouseOut={this.onMouseOut}></div>
         <div className='image-spinner'></div>
       </li>
     );
