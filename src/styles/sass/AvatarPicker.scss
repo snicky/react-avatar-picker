@@ -71,13 +71,13 @@
     }
 
     .image-wrapper {
+      @include img-circle;
       display:       inline-block;
       position:      relative;
       width:         $popover-image-diameter;
       height:        $popover-image-diameter;
       margin:        $popover-image-margin - $popover-image-border-size;
       border:        $popover-image-border;
-      border-radius: 50%;
 
       &:not(.spinning).hovered {
         border: $popover-image-hover-border;

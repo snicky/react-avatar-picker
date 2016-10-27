@@ -58,13 +58,13 @@
       margin: 0;
       padding: 0; }
     .avatar-picker .popover .image-wrapper {
+      border-radius: 50%;
       display: inline-block;
       position: relative;
       width: 52px;
       height: 52px;
       margin: 4px;
-      border: 3px solid #2c3033;
-      border-radius: 50%; }
+      border: 3px solid #2c3033; }
       .avatar-picker .popover .image-wrapper:not(.spinning).hovered {
         border: 3px solid #9ba0a3; }
         .avatar-picker .popover .image-wrapper:not(.spinning).hovered .image-overlay {
