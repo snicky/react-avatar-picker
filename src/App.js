@@ -10,7 +10,7 @@ const avatars = [
   { "src": "https://github.com/JoinColony/coding-challenge/blob/master/avatar6.png?raw=true", "label": "Avatar 6", "id": 6 }
 ];
 
-const saveAvatarChoice = (avatar) => {
+const saveAvatar = (avatar) => {
   return new Promise((resolve, _) => {
     const fakeApiResponseDelay = 1000;
     setTimeout(() => {
@@ -25,8 +25,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <br/>
-        <AvatarPicker avatars={avatars} avatarsPerRow={4}
-          saveAvatarChoice={saveAvatarChoice} />
+        <AvatarPicker avatars={avatars} avatarsPerRow={4} saveAvatar={saveAvatar} />
       </div>
     );
   }

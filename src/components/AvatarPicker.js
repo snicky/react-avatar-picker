@@ -94,7 +94,7 @@ export default class AvatarPicker extends Component {
   saveAvatarChoice(avatar) {
     return new Promise(((resolve, _) => {
       this.setState({ spinningAvatar: avatar });
-      this.props.saveAvatarChoice(avatar).then(() => {
+      this.props.saveAvatar(avatar).then(() => {
         this.setState({ currentAvatar: avatar, spinningAvatar: null });
         this.close();
         resolve()
