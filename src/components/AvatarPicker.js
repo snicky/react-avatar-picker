@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Bounce from '../../bower_components/bounce.js/bounce.js';
+import Bounce from 'bounce.js';
 import '../styles/css/AvatarPicker.css';
 import AvatarListImage from './AvatarListImage';
 import HappyGrid from '../helpers/HappyGrid';

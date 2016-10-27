@@ -1,8 +1,0 @@
-{
-  "name": "avatar-picker",
-  "version": "0.0.1",
-  "dependencies": {
-    "bounce.js": "^0.8.2"
-  },
-  "private": true
-}
