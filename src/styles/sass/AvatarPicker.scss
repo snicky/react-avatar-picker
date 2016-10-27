@@ -8,10 +8,6 @@
   position: relative;
   width:    $image-diameter;
 
-  @mixin img-circle {
-    border-radius: 50%;
-  }
-
   img {
     @include img-circle;
     width:  $image-diameter;

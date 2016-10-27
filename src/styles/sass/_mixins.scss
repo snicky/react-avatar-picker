@@ -1,3 +1,7 @@
+@mixin img-circle {
+  border-radius: 50%;
+}
+
 @mixin opacity-transition($opacity, $time) {
   opacity: $opacity;
   -webkit-transition: opacity $time ease-in-out;
