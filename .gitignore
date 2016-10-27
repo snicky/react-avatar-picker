@@ -11,7 +11,7 @@ coverage
 build
 
 # dev
-src/.sass-cache
+**/.sass-cache
 
 # misc
 .DS_Store
