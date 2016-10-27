@@ -79,7 +79,7 @@
       border:        $popover-image-border;
       border-radius: 50%;
 
-      &:not(.loading).hovered {
+      &:not(.spinning).hovered {
         border: $popover-image-hover-border;
 
         .image-overlay {
