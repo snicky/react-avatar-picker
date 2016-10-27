@@ -25,14 +25,16 @@ export default class AvatarPicker extends Component {
   })();
 
   open = () => {
-    // Short delay to start bouncing before the element is displayed.
-    const displayDelay = 50;
-    this.bounceEffect.applyTo(this.popover);
-    setTimeout(() => {
-      this.setState({
-        opened: true
-      })
-    }, displayDelay);
+    if (!this.state.opened) {
+      // Short delay to start bouncing before the element is displayed.
+      const displayDelay = 50;
+      this.bounceEffect.applyTo(this.popover);
+      setTimeout(() => {
+        this.setState({
+          opened: true
+        })
+      }, displayDelay);
+    }
   }
   close() {
     this.popover.addEventListener('transitionend', () => {
