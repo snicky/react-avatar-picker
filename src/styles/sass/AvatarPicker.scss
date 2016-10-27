@@ -22,7 +22,7 @@
       border: $current-avatar-border-size solid white;
 
       &:hover, &:focus {
-        border: $current-avatar-border-size solid rgb(155, 160, 163);
+        border: $current-avatar-border-size solid $color-gray;
       }
     }
   }
@@ -62,7 +62,7 @@
 
     .title {
       font-family:   'Source Sans Pro', sans-serif;
-      color:         rgb(249, 249, 249);
+      color:         $color-almost-white;
       font-size:     16px;
       margin-bottom: $popover-padding;
       text-align:    center;
@@ -87,7 +87,7 @@
         border: $popover-image-hover-border;
 
         .image-overlay {
-          background-color: rgba(122, 161, 178, 0.2);
+          background-color: rgba($color-blue, 0.2);
         }
       }
 
