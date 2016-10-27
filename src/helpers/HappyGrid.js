@@ -6,6 +6,9 @@ export default class HappyGrid {
     this.firstRow = this.array.slice(0, this.rowLength);
     this.lastRow = this.array.slice(this.array.length - this.array.length % this.rowLength);
   }
+  setCurrentElement(currentElement) {
+    this.currentElement = currentElement;
+  }
   horizontalJump(direction) {
     const anyIndex = this.array.indexOf(this.currentElement) + direction;
     const index = anyIndex % this.array.length;

@@ -44,6 +44,8 @@ export default class AvatarPicker extends Component {
   // ------------------------------------------------------------------------
   // Events detection
 
+  avatarsGrid = new HappyGrid(this.props.avatars, this.props.avatarsPerRow);
+
   detectPopoverClicks(e) {
     if (this.state.opened && !this.popover.contains(e.target)) {
       this.close();
@@ -51,8 +53,7 @@ export default class AvatarPicker extends Component {
   }
   detectKeyDown(e) {
     if (this.state.opened) {
-      const avatarsGrid = new HappyGrid(
-        this.props.avatars, this.props.avatarsPerRow, this.state.hoveredAvatar);
+      this.avatarsGrid.setCurrentElement(this.state.hoveredAvatar);
       let newHoveredAvatar;
       switch(e.keyCode) {
         case 13: // [Enter]
@@ -60,17 +61,18 @@ export default class AvatarPicker extends Component {
           this.saveAvatarChoice(this.state.hoveredAvatar);
           break;
         case 37: // [Left]
-          newHoveredAvatar = avatarsGrid.jumpLeft();
+          newHoveredAvatar = this.avatarsGrid.jumpLeft();
           break;
         case 38: // [Up]
-          newHoveredAvatar = avatarsGrid.jumpUp();
+          newHoveredAvatar = this.avatarsGrid.jumpUp();
           break;
         case 39: // [Right]
-          newHoveredAvatar = avatarsGrid.jumpRight();
+          newHoveredAvatar = this.avatarsGrid.jumpRight();
           break;
         case 40: // [Down]
-          newHoveredAvatar = avatarsGrid.jumpDown();
+          newHoveredAvatar = this.avatarsGrid.jumpDown();
           break;
+        default:
       }
       this.setState({
         hoveredAvatar: newHoveredAvatar
@@ -119,17 +121,18 @@ export default class AvatarPicker extends Component {
       return (
         <AvatarListImage
           avatar={avatar}
+          key={`avatar-${avatar.id}`}
           saveAvatarChoice={this.saveAvatarChoice.bind(this)}
           hoverAvatar={this.hoverAvatar.bind(this)}
-          hovered={this.state.hoveredAvatar == avatar}
-          spinning={this.state.spinningAvatar == avatar}
+          hovered={this.state.hoveredAvatar === avatar}
+          spinning={this.state.spinningAvatar === avatar}
         />
       );
     });
     return (
       <div className="avatar-picker">
         <img className="current" src={this.state.currentAvatar.src}
-          onClick={this.open.bind(this)}/>
+          onClick={this.open.bind(this)} alt={this.state.currentAvatar.label} />
         <div className={this.setPopoverClass.apply(this)}
           ref={(domNode) => this.popover = domNode}>
           <div className="title">Choose your avatar:</div>
