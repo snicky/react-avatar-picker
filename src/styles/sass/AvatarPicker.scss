@@ -1,43 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
-@mixin opacity-transition($opacity, $time) {
-  opacity: $opacity;
-  -webkit-transition: opacity $time ease-in-out;
-     -moz-transition: opacity $time ease-in-out;
-      -ms-transition: opacity $time ease-in-out;
-       -o-transition: opacity $time ease-in-out;
-}
-
-@mixin spin($fullCircleSpinTime) {
-  -webkit-animation-name:            spin;
-  -webkit-animation-duration:        $fullCircleSpinTime;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-
-  @keyframes spin {
-     from {
-         transform: rotate(0deg);
-     } to {
-         transform: rotate(360deg);
-     }
-  }
-}
-
 .avatar-picker {
-  $image-diameter:                60px;
-  $current-avatar-border-size:    1px;
-  $popover-width:                 280px;
-  $popover-background-color:      rgb(44, 48, 51);
-  $popover-triangle-edge-length:  8px;
-  $popover-padding:               14px;
-  $popover-image-margin:          $popover-padding / 2;
-  $popover-image-border-size:     3px;
-  $popover-image-border:          $popover-image-border-size solid $popover-background-color;
-  $popover-image-hover-border:    $popover-image-border-size solid rgb(155, 160, 163);
-  $spinner-color:                 rgb(122, 161, 178);
-  $popover-images-per-row:        4;
-  $popover-total-margins-per-row: ($popover-images-per-row+1)*2*$popover-image-margin;
-  $popover-image-diameter:        floor(($popover-width - $popover-total-margins-per-row)/$popover-images-per-row);
+  @import 'variables';
+  @import 'mixins';
 
   margin:   auto;
   position: relative;
